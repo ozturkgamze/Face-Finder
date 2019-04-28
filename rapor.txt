@@ -1,0 +1,16 @@
+PROJE RAPORU
+Projede kullanýlan teknolojiler:
+•	OpenCV
+•	Python
+•	Flask
+Çözüm Yöntemi:
+Ýstenilen ödevde öncelikle yüz fotoðrafý yüklenmesi ve bu yüzün genel fotoðrafta bulunmasý istenildi. Bu nedenle ilk olarak düþündüðüm çözümde tekli yüz fotoðrafýnda yüzün bulunup bir matrise atýlmasý gerektiði oldu. Daha sonra bu yüzün özelliklerinin tanýnmasý ve genel fotoðrafta ayný þekilde yüzlerin bulunarak bu özelliklerin karþýlaþtýrýlmasý gerekiyordu. Karþýlaþtýrýlan yüzlerdeki benzerlik oranlarýna göre ise aranýlan kiþinin tespiti gerçekleþecekti.
+Buna göre öncelikle web arayüzünü geliþtirdim. Daha sonra ise python, flask ve openCV ile backend kýsmýna geçtim.
+Yukarýda belirttiðim iþleri sýrasýyla yapabilmek için ilk olarak yüz fotoðrafý yüklenir. Yüklenen bu fotoðrafta openCV yüz bulma fonksiyonuyla yüz bulunur. Bulunan yüzün özellik matrisi çýkarýlýr. Çýkarýlan matris, openCV’nin LBPHFaceRecognizer_create() fonksiyonuyla eðitilip bir eðitim dosyasý oluþturulur(trainner.yml). Artýk bu dosya, verilen yüzün özellik matrisini kendinde barýndýrýr ve bu özellik matrisiyle genel fotoðrafta eþleþen herhangi bir yüz bulunduðunda benzerlik oraný çýkarýlýr. Çýkarýlan bu oran %95-%100 arasýnda ise bizim aradýðýmýz yüzdür ve bu yüz kýrmýzý kare içerine alýnýr. Bu oranýn altýnda kalan yüzler ise mavi kare içerisine alýnýr. 
+
+Sistemin çalýþmasý için gerekli olan modüller:
+•	Pip install opencv-python
+•	Pip install opencv-contrib-python
+•	Pip install pillow –upgrade
+•	Pip install numpy
+•	Pip install flask
