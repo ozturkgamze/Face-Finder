@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Face detection demo</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <style type="text/css">
+  #header {
+    font-size: 2.0em;
+  }
+
+  #general{
+    display: block;
+    font-size: 0.87em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+  }
+
+  #face {
+    display: block;
+    font-size: 0.90em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+  }
+
+  #columnLeft {
+   width: 10%;
+   float:left;
+   margin-left: 30px;
+   margin-top: 25px;
+   background: white;
+   padding-bottom: 1em;
+   text-align: justify;
+  }
+
+  #columnMain {
+   width:55%;
+   float:left;
+   margin-right: 0;
+   margin-top: 10px;
+   background: white;
+   padding-bottom: 1em;
+  }
+
+  #columnRight {
+   width:25%;
+   float:left;
+   margin-right: 0;
+   margin-top: 10px;
+   background: white;
+   padding-bottom: 1em;
+  }
+
+  #columnMainLeft {
+    width:50%;
+    height: 30%;
+    float:left;
+    margin-right: 0;
+    margin-top: 0;
+    background: white;
+    padding-bottom: 1em;
+  }
+
+  #columnMainLeft2{
+    width:100%;
+    height: 30%;
+    float:left;
+    margin-right: 0;
+    margin-top: 0;
+    background: white;
+    padding-bottom: 1em;
+  }
+
+  #columnMainRight {
+    width:50%;
+    height: 30%;
+    float:left;
+    margin-right: 0;
+    margin-top: 0;
+    background: white;
+    padding-bottom: 1em;
+  }
+
+  #footer {
+    clear: both;
+    padding-bottom: 1em;
+    border-top: 1px solid #333;
+
+    text-align: center;
+  }
+  .ex1 {
+  background-color: lightblue;
+  width: 100%;
+  height: 250px;
+  margin-left:45px;
+  overflow: scroll;
+}
+
+</style>
+</head>
+
+<body>
+  <div align="center" id="header">
+  <h1 id="header"><b>FACE FINDER</b></h1>
+  </div>
+  <div id="columnLeft">
+
+  <header class="general">
+    <form action="/upload" method="post" enctype="multipart/form-data" >
+        <div align="margin-left">
+           
+            <label class="btn btn-primary btn-file" style="width: 100px; height: 70px; margin-top: 5px">
+              <h3 id="face">Face image</h3>
+                <strong id="face">Browse</strong> <input type="file" name="face_image"style="display: none;">
+            </label>
+
+            <label class="btn btn-primary btn-file"style="width: 100px; height: 70px; margin-top: 4px;">
+              <h3 id="general">General image</h3>
+                <strong id="general">Browse</strong> <input type="file" name="general_image" style="display: none;">
+            </label>
+
+            <div style="margin-left: 3px; margin-top: 5px">
+              <input type="submit" value="View result" class="btn btn-success">
+          </div>
+        </div>
+    </form>
+</header>
+
+</div>
+
+<div id="columnMain">
+<div class="text-center">
+
+  {% if init %}
+            <div id="columnMainLeft">
+                <h2 align="center">
+                    <b>
+                        FACE
+                    </b>
+                </h2>
+                <img src="{{face}}" style="max-width:50%; max-height:50%" alt="face image">
+            </div>
+            <div id="columnMainRight">
+                <h2 align="center">
+                    <b>
+                        GENERAL
+                    </b>
+                </h2>
+                <img src="{{ general }}" style="max-width:100%; max-height:100%" alt="general image">
+            </div>
+            <div id="columnMainLeft2">
+                <h2 align="center">
+                    <b>
+                        RESULT
+                    </b>
+                </h2>
+                <img src="{{result}}" style="max-width:50%; max-height:50%" alt="result image">
+            </div>
+  {% else %}
+      <div class="alert alert-danger" style="margin-top:18px;">
+          <strong>Opss..!</strong> You have no action
+      </div>
+  {% endif %}
+
+</div>
+</div>
+
+<h2 style="margin-top:30px" align="center">
+    <b>
+        PREVIOUS RESULTS
+    </b>
+</h2>
+<div id="columnRight" class="ex1">
+    {% for i in file %}
+    <ul>
+        <li>
+            <img src="{{i}}" style="max-width:90%; max-height:90%" alt="previous results">
+        </li>
+    </ul>
+    {% endfor %}
+</div>
+
+<div id="footer">
+    <a href=""> Project Source Code </a>
+</div>
+
+</body>
+</html>
