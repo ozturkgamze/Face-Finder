@@ -47,7 +47,7 @@ def upload_file():
 #		roi_color = frame[y:y+h, x:x+h] #roi_gray üzerinde tanımlama yapılır. Döndürülen oran ve id iki değişkene atanır.
 		id_, oran = recognizer.predict(roi_gray)
 		oran = int(oran) % 100
-		if oran>=95 and oran <= 100:
+		if oran>=90 and oran <= 100:
 			font = cv2.FONT_HERSHEY_DUPLEX
 			
 			name = '%'+str(oran)
