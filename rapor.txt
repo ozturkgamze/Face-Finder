@@ -1,16 +1,16 @@
 PROJE RAPORU
-Projede kullanılan teknolojiler:
-•	OpenCV
-•	Python
-•	Flask
-Çözüm Yöntemi:
-İstenilen ödevde öncelikle yüz fotoğrafı yüklenmesi ve bu yüzün genel fotoğrafta bulunması istenildi. Bu nedenle ilk olarak düşündüğüm çözümde tekli yüz fotoğrafında yüzün bulunup bir matrise atılması gerektiği oldu. Daha sonra bu yüzün özelliklerinin tanınması ve genel fotoğrafta aynı şekilde yüzlerin bulunarak bu özelliklerin karşılaştırılması gerekiyordu. Karşılaştırılan yüzlerdeki benzerlik oranlarına göre ise aranılan kişinin tespiti gerçekleşecekti.
-Buna göre öncelikle web arayüzünü geliştirdim. Daha sonra ise python, flask ve openCV ile backend kısmına geçtim.
-Yukarıda belirttiğim işleri sırasıyla yapabilmek için ilk olarak yüz fotoğrafı yüklenir. Yüklenen bu fotoğrafta openCV yüz bulma fonksiyonuyla yüz bulunur. Bulunan yüzün özellik matrisi çıkarılır. Çıkarılan matris, openCV’nin LBPHFaceRecognizer_create() fonksiyonuyla eğitilip bir eğitim dosyası oluşturulur(trainner.yml). Artık bu dosya, verilen yüzün özellik matrisini kendinde barındırır ve bu özellik matrisiyle genel fotoğrafta eşleşen herhangi bir yüz bulunduğunda benzerlik oranı çıkarılır. Çıkarılan bu oran %95-%100 arasında ise bizim aradığımız yüzdür ve bu yüz kırmızı kare içerine alınır. Bu oranın altında kalan yüzler ise mavi kare içerisine alınır. 
+Projede kullanÄ±lan teknolojiler:
+â€¢	OpenCV
+â€¢	Python
+â€¢	Flask
+Ã‡Ã¶zÃ¼m YÃ¶ntemi:
+Ä°stenilen Ã¶devde Ã¶ncelikle yÃ¼z fotoÄŸrafÄ± yÃ¼klenmesi ve bu yÃ¼zÃ¼n genel fotoÄŸrafta bulunmasÄ± istenildi. Bu nedenle ilk olarak dÃ¼ÅŸÃ¼ndÃ¼ÄŸÃ¼m Ã§Ã¶zÃ¼mde tekli yÃ¼z fotoÄŸrafÄ±nda yÃ¼zÃ¼n bulunup bir matrise atÄ±lmasÄ± gerektiÄŸi oldu. Daha sonra bu yÃ¼zÃ¼n Ã¶zelliklerinin tanÄ±nmasÄ± ve genel fotoÄŸrafta aynÄ± ÅŸekilde yÃ¼zlerin bulunarak bu Ã¶zelliklerin karÅŸÄ±laÅŸtÄ±rÄ±lmasÄ± gerekiyordu. KarÅŸÄ±laÅŸtÄ±rÄ±lan yÃ¼zlerdeki benzerlik oranlarÄ±na gÃ¶re ise aranÄ±lan kiÅŸinin tespiti gerÃ§ekleÅŸecekti.
+Buna gÃ¶re Ã¶ncelikle web arayÃ¼zÃ¼nÃ¼ geliÅŸtirdim. Daha sonra ise python, flask ve openCV ile backend kÄ±smÄ±na geÃ§tim.
+YukarÄ±da belirttiÄŸim iÅŸleri sÄ±rasÄ±yla yapabilmek iÃ§in ilk olarak yÃ¼z fotoÄŸrafÄ± yÃ¼klenir. YÃ¼klenen bu fotoÄŸrafta openCV yÃ¼z bulma fonksiyonuyla yÃ¼z bulunur. Bulunan yÃ¼zÃ¼n Ã¶zellik matrisi Ã§Ä±karÄ±lÄ±r. Ã‡Ä±karÄ±lan matris, openCVâ€™nin LBPHFaceRecognizer_create() fonksiyonuyla eÄŸitilip bir eÄŸitim dosyasÄ± oluÅŸturulur(trainner.yml). ArtÄ±k bu dosya, verilen yÃ¼zÃ¼n Ã¶zellik matrisini kendinde barÄ±ndÄ±rÄ±r ve bu Ã¶zellik matrisiyle genel fotoÄŸrafta eÅŸleÅŸen herhangi bir yÃ¼z bulunduÄŸunda benzerlik oranÄ± Ã§Ä±karÄ±lÄ±r. Ã‡Ä±karÄ±lan bu oran %90-%100 arasÄ±nda ise bizim aradÄ±ÄŸÄ±mÄ±z yÃ¼zdÃ¼r ve bu yÃ¼z kÄ±rmÄ±zÄ± kare iÃ§erine alÄ±nÄ±r. Bu oranÄ±n altÄ±nda kalan yÃ¼zler ise mavi kare iÃ§erisine alÄ±nÄ±r. 
 
-Sistemin çalışması için gerekli olan modüller:
-•	Pip install opencv-python
-•	Pip install opencv-contrib-python
-•	Pip install pillow –upgrade
-•	Pip install numpy
-•	Pip install flask
+Sistemin Ã§alÄ±ÅŸmasÄ± iÃ§in gerekli olan modÃ¼ller:
+â€¢	Pip install opencv-python
+â€¢	Pip install opencv-contrib-python
+â€¢	Pip install pillow â€“upgrade
+â€¢	Pip install numpy
+â€¢	Pip install flask
